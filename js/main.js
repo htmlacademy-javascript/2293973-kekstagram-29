@@ -62,7 +62,7 @@ const createMessage = () => Array.from (
 
 const createComment = () => ({
   id: generateCommentId(),
-  avatar: 'img/avatar-${getRandomInteger (1, avatars)}.svg',
+  avatar: `img/avatar-${getRandomInteger (1, avatars)}.svg`,
   message: createMessage(),
   name: getRandomArrayElement(names),
 });
