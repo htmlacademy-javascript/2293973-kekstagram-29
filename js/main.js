@@ -7,3 +7,4 @@ const getPictures = () => Array.from(
 );
 
 getPictures();
+
