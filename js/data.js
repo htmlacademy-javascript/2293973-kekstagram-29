@@ -1,4 +1,4 @@
-import { createIdGenerator } from './id-generator-creation';
+import { createIdGenerator } from './id-generator-creation.js';
 const photoId = 25;
 const avatars = 6;
 const minLike = 15;
