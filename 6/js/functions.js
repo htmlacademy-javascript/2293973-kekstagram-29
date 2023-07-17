@@ -16,11 +16,9 @@ function perfectTiming (dayStartTime, dayEndTime, meetingStartTime, meetingLengt
   const finishTime = meetingStartInMinutes + meetingLength;
   switch (finishTime) {
     case finishTime > dayEndInMinutes:
-      alert(false);
-      break;
+      return(false);
     case finishTime <= dayEndInMinutes:
-      alert(true);
-      break;
+      return(true);
   }
 }
 
