@@ -1,35 +1,25 @@
-const less = function (line, length = 20) {
-  if (typeof line !== 'string') {
-    return false;
+const dayStart = '9:00';
+const dayEnd = '18:00';
+const meetingStart = '15:30';
+const meetingTime = 60;
+
+function timeParcing (a) {
+  const parcing = a.split(':').map(Number);
+  const [hours, minutes] = parcing;
+  const minutesInHour = 60;
+  return hours * minutesInHour + minutes;
+}
+
+function perfectTiming (dayStartTime, dayEndTime, meetingStartTime, meetingLength) {
+  const dayEndInMinutes = timeParcing(dayEndTime);
+  const meetingStartInMinutes = timeParcing(meetingStartTime);
+  const finishTime = meetingStartInMinutes + meetingLength;
+  switch (finishTime) {
+    case finishTime > dayEndInMinutes:
+      return(false);
+    case finishTime <= dayEndInMinutes:
+      return(true);
   }
-  return line.length < length;
-};
+}
 
-less (15, 20);
-
-const equal = function (line, length) {
-  return line.length === length;
-};
-
-equal (15, 18);
-
-const more = function (line, length) {
-  return line.length > length;
-};
-
-more (15, 10);
-
-const palindrom = function(word) {
-  const checkedWord = word.replaceAll(' ','').toLowerCase();
-  for (let i = 0; i < checkedWord.length / 2; i++) {
-    if (checkedWord[i] !== checkedWord[checkedWord.length - i - 1]) {
-      //Собака
-      return false;
-    }
-  }
-  return true;
-};
-
-palindrom('собака');
-
-palindrom ('довод');
+perfectTiming (dayStart, dayEnd, meetingStart, meetingTime);
